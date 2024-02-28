@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "index.js",
+  "sourceRoot": "",
+  "sources": [
+    "@uirouter\\angularjs\\index.ts"
+  ],
+  "names": [],
+  "mappings": ";;;;;;;;;;;;;AAAA;;;GAGG,CAAC,MAAM;AACV,8CAA4B;AAC5B,6CAA2B;AAC3B,wDAAsC;AACtC,kDAAgC;AAChC,sDAAoC;AAEpC,yBAAuB;AACvB,wCAAsC;AACtC,0BAAwB;AACxB,sCAAoC;AACpC,wBAAsB;AAEtB,kBAAe,WAAW,CAAC;AAE3B,qCAAuC;AAC9B,oBAAI;AACb,iDAA+B",
+  "sourcesContent": [
+    "/**\r\n * Main entry point for angular 1.x build\r\n * @publicapi @module ng1\r\n */ /** */\r\nexport * from './interface';\r\nexport * from './services';\r\nexport * from './statebuilders/views';\r\nexport * from './stateProvider';\r\nexport * from './urlRouterProvider';\r\n\r\nimport './injectables';\r\nimport './directives/stateDirectives';\r\nimport './stateFilters';\r\nimport './directives/viewDirective';\r\nimport './viewScroll';\r\n\r\nexport default 'ui.router';\r\n\r\nimport * as core from '@uirouter/core';\r\nexport { core };\r\nexport * from '@uirouter/core';\r\n"
+  ]
+}

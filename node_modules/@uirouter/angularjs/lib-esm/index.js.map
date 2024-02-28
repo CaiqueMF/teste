@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "index.js",
+  "sourceRoot": "",
+  "sources": [
+    "@uirouter\\angularjs\\index.ts"
+  ],
+  "names": [],
+  "mappings": "AAAA;;;GAGG,CAAC,MAAM;AACV,cAAc,aAAa,CAAC;AAC5B,cAAc,YAAY,CAAC;AAC3B,cAAc,uBAAuB,CAAC;AACtC,cAAc,iBAAiB,CAAC;AAChC,cAAc,qBAAqB,CAAC;AAEpC,OAAO,eAAe,CAAC;AACvB,OAAO,8BAA8B,CAAC;AACtC,OAAO,gBAAgB,CAAC;AACxB,OAAO,4BAA4B,CAAC;AACpC,OAAO,cAAc,CAAC;AAEtB,eAAe,WAAW,CAAC;AAE3B,OAAO,KAAK,IAAI,MAAM,gBAAgB,CAAC;AACvC,OAAO,EAAE,IAAI,EAAE,CAAC;AAChB,cAAc,gBAAgB,CAAC",
+  "sourcesContent": [
+    "/**\r\n * Main entry point for angular 1.x build\r\n * @publicapi @module ng1\r\n */ /** */\r\nexport * from './interface';\r\nexport * from './services';\r\nexport * from './statebuilders/views';\r\nexport * from './stateProvider';\r\nexport * from './urlRouterProvider';\r\n\r\nimport './injectables';\r\nimport './directives/stateDirectives';\r\nimport './stateFilters';\r\nimport './directives/viewDirective';\r\nimport './viewScroll';\r\n\r\nexport default 'ui.router';\r\n\r\nimport * as core from '@uirouter/core';\r\nexport { core };\r\nexport * from '@uirouter/core';\r\n"
+  ]
+}

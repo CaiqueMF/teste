@@ -1,0 +1,6 @@
+{
+  "typescript": {
+    "typescript3.9": "./test/typescript/3.9"
+  },
+  "sample-app-angularjs": "https://github.com/ui-router/sample-app-angularjs.git"
+}
