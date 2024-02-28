@@ -47,7 +47,7 @@
 				<label for="">{{ 'LGPD' | translate }}</label>
 				<dropdown on-select="$ctrl.updateLgpd(selected)"
 					selected="{name: $ctrl.selectedElement.value.lgpd, type: $ctrl.selectedElement.value.lgpd}"
-					options="[{name: '[P]', type: '[P]'}, {name: '[S]', type: '[S]'}, {name: '[A]', type: '[A]'}, {name: '[C]', type: '[C]'}]">
+					options="[{name: 'Nenhum', type: '[]'},{name: 'Pessoal', type: '[P]'}, {name: 'Sensível', type: '[S]'}, {name: 'Anonimizado', type: '[A]'}, {name: 'Criptografado', type: '[C]'},{name: 'Consentimento', type: '[CS]'},{name: 'Período de Consentimento', type: '[PS]'},{name: 'Finalidade', type: '[F]'},{name: 'Compartilhamento', type: '[CP]'},{name: 'Criança/Adolescente', type: '[CA]'},{name: 'Identificador', type: '[I]'},{name: 'Semi-identificador', type: '[SI]'}]">
 				</dropdown>
 			</div>
 
@@ -94,7 +94,7 @@
 				<label for="">{{ 'LGPD' | translate }}</label>
 				<dropdown on-select="$ctrl.updateAttributeLgpd(selected)"
 					selected="{name: $ctrl.selectedElement.value.lgpd, type: $ctrl.selectedElement.value.lgpd}"
-					options="[{name: '[P]', type: '[P]'}, {name: '[S]', type: '[S]'}, {name: '[A]', type: '[A]'}, {name: '[C]', type: '[C]'}]">
+					options="[{name: 'Nenhum', type: '[]'},{name: 'Pessoal', type: '[P]'}, {name: 'Sensível', type: '[S]'}, {name: 'Anonimizado', type: '[A]'}, {name: 'Criptografado', type: '[C]'},{name: 'Consentimento', type: '[CS]'},{name: 'Período de Consentimento', type: '[PS]'},{name: 'Finalidade', type: '[F]'},{name: 'Compartilhamento', type: '[CP]'},{name: 'Criança/Adolescente', type: '[CA]'},{name: 'Identificador', type: '[I]'},{name: 'Semi-identificador', type: '[SI]'}]">
 				</dropdown>
 			</div>
 			<div class="checkbox">

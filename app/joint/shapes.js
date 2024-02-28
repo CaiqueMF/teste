@@ -167,7 +167,7 @@ erd.Attribute = joint.dia.Element.extend({
       type: "erd.Attribute",
       supertype: "Attribute",
       cardinality: "(1, 1)",
-			lgpd: "[]",
+			lgpd: "Nenhum",
       multivalued: false,
       composed: false,
       size: {
@@ -217,7 +217,7 @@ erd.Key = joint.dia.Element.extend({
       type: "erd.Key",
       supertype: "Key",
       cardinality: "(1, 1)",
-			lgpd: "[]",
+			lgpd: "Nenhum",
       multivalued: false,
       composed: false,
       size: {

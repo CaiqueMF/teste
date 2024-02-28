@@ -1,0 +1,27 @@
+////////////////////////////////////////////////////////////////////////////////
+// .feedback
+////////////////////////////////////////////////////////////////////////////////
+.workspace-header .feedback {
+	position: absolute;
+	top: calc(100% + 12px);
+	left: 12px;
+	width: calc(100% - 64px);
+	z-index: 1;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// .field.error
+////////////////////////////////////////////////////////////////////////////////
+.field.error .fieldLabel {
+	color: var (--danger-base);
+}
+
+.field.error .fieldInput {
+	color: var(--danger-base);
+	border-color: var(--danger-base);
+	// background-color: rgba(red, 0.1);
+	box-shadow: 1px 1px 1px var(--white) inset;
+}
+
+.field.error .fieldInput:focus {box-shadow: 1px 1px 1px var(--white) inset;}
+.field.error .fieldInput::placeholder {color: rgba(red, 0.6);}

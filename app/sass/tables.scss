@@ -1,0 +1,48 @@
+///////////////////////////////////////////////////////////////////////////////
+// <th>, <td> adjustments
+///////////////////////////////////////////////////////////////////////////////
+.table > thead > tr > th,
+.table > tbody > tr > td {
+	vertical-align: middle;
+	border-color: var(--border-default);
+}
+
+.table thead th strong {
+	font-weight: 600;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// .table-hover
+///////////////////////////////////////////////////////////////////////////////
+.table-hover tbody tr {
+	cursor: pointer;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// .action-cell
+///////////////////////////////////////////////////////////////////////////////
+.actions-cell {
+	text-align: right;
+}
+
+.actions-cell .fa {
+	pointer-events: none;
+	opacity: 0;
+	font-size: 1.3em;
+	padding: 4px 6px;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	margin-left: 3px;
+}
+
+tr:hover .actions-cell .fa {
+	pointer-events: all;
+	opacity: 1;
+	border-radius: 4px;
+}
+
+.actions-cell .fa:hover {
+	border-color: var(--border-default);
+	background-color: var(--gray-90);
+}
+

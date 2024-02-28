@@ -244,9 +244,12 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 				$timeout(() => {
 					const newCardinality = event.value;
 					let currentText = ctrl.selectedElement.value.name;
-
+					const currentLgpd = ctrl.selectedElement.element.model.attributes.lgpd;
 					if(newCardinality != '(1, 1)'){
 						currentText = currentText + " " + newCardinality;
+					}
+					if(currentLgpd != '[]' && currentLgpd != 'Nenhum'){
+						currentText = currentText + " " + currentLgpd;
 					}
 
 					ctrl.selectedElement.element.model.attributes.attrs.text.text = currentText;
@@ -254,12 +257,15 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 					ctrl.selectedElement.element.update();
 				});
 				break;
-				case 'attribute.lgpd':
+			case 'attribute.lgpd':
 					$timeout(() => {
 						const newLgpd = event.value;
 						let currentText = ctrl.selectedElement.value.name;
-
-						if(newLgpd != '[]'){
+						const currentCardinality = ctrl.selectedElement.element.model.attributes.cardinality;
+						if(currentCardinality != '(1, 1)'){
+							currentText = currentText + " " + currentCardinality;
+						}
+						if(newLgpd != '[]' && newLgpd != 'Nenhum'){
 							currentText = currentText + " " + newLgpd;
 						}
 
@@ -277,7 +283,7 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 					if(currentCardinality != '(1, 1)'){
 						newName = newName + " " + currentCardinality;
 					}
-					if(currentLgpd != '[]'){
+					if(currentLgpd != '[]' && currentLgpd!='Nenhum'){
 						newName = newName + " " + currentLgpd
 					}
 
