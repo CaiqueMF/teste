@@ -196,6 +196,19 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 					}
 				});
 				break;
+			case 'titular':
+					$timeout(() => {
+						const newValue = event.value;
+						const root = ctrl.selectedElement.element.model;
+						if(newValue) {
+							root.attributes.attrs['.outer']['stroke-dasharray']=5
+							console.log(root)
+						} else {
+							root.attributes.attrs['.outer']['stroke-dasharray']=0
+						}
+						ctrl.selectedElement.element.update()
+					});
+				break;
 			case 'editExtention':
 				$timeout(() => {
 					ctrl.selectedElement.element.model.attributes.attrs.text.text = event.value;

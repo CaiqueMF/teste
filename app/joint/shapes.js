@@ -12,6 +12,7 @@ erd.Entity = joint.dia.Element.extend({
       type: "erd.Entity",
       supertype: "Entity",
       isExtended: false,
+      isTitular: false,
       autorelationship: false,
       size: { width: 80, height: 40 },
       attrs: {
@@ -19,6 +20,7 @@ erd.Entity = joint.dia.Element.extend({
           fill: "#FFFFFF",
           stroke: "black",
           "stroke-width": 1,
+          "stroke-dasharray": 0,
           points: "100,0 100,60 0,60 0,0",
         },
         ".inner": {

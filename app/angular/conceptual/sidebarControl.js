@@ -86,6 +86,14 @@ const controller = function($rootScope, $timeout) {
 			}
 		});
 	}
+	$ctrl.swapTitular = (value) => {
+		$ctrl.onUpdate({
+			"event": {
+				"type": "titular",
+				"value": value
+			}
+		});
+	}
 
 	$ctrl.updateCardinality = (selected) => {
 		$ctrl.onUpdate({

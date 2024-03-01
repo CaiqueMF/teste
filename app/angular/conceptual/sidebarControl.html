@@ -26,6 +26,16 @@
 					options="[{name: '(t, d)', type: '(t, d)'}, {name: '(t, c)', type: '(t, c)'}, {name: '(p, d)', type: '(p, d)'}, {name: '(p, c)', type: '(p, c)'}]">
 				</dropdown>
 			</div>
+			<div class="checkbox">
+				<label for="titular">
+					<input
+						id="titular"
+						type="checkbox"
+						ng-model="$ctrl.selectedElement.element.model.attributes.isTitular"
+						ng-change="$ctrl.swapTitular($ctrl.selectedElement.element.model.attributes.isTitular)"
+					> {{ 'Titular' | translate }}
+				</label>
+			</div>
 
 			<div class="form-group">
 				<label for="">{{ 'Self relationship' | translate }}</label>
