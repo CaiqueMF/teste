@@ -187,7 +187,7 @@ const controller = function($rootScope, $timeout) {
 		if (currentType === "Attribute") {
 			const attributes = selected.currentValue.element.model.attributes;
 			selected.currentValue.value = {
-				"name": attributes.attrs.text.text.replace(/ *\([^)]*\) */g, ""),
+				"name": attributes.attrs.text.text.replace(/ *(\(|\[)[^)]*(\)|\]) */g, ""),
 				"cardinality": attributes.cardinality,
 				"lgpd": attributes.lgpd,
 				"composed": attributes.composed

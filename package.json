@@ -44,7 +44,6 @@
     "mongodb": "~4.17.0",
     "mongoose": "^6.11.6",
     "morgan": "^1.10.0",
-    "node": "^21.6.2",
     "oclazyload": "^1.1.0",
     "prop-types": "^15.8.1",
     "raw-body": "^2.5.2",
@@ -55,8 +54,7 @@
     "response-time": "^2.3.2",
     "styled-components": "^6.0.8",
     "textangular": "^1.5.16",
-    "typescript": "^5.2.2",
-    "yarn": "^1.22.21"
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.2.5",
