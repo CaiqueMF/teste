@@ -103,11 +103,13 @@ const controller = function($rootScope, $timeout) {
 			}
 		});
 	}
-	$ctrl.updateLgpd = (selected) => {
+	$ctrl.updateLgpd = (value,num) => {
+		console.log(num)
 		$ctrl.onUpdate({
 			"event": {
-				"type": "link.lgpd",
-				"value": selected.type
+				"type": "attribute.lgpd",
+				"value": value,
+				"lgpd": num
 			}
 		});
 	}
@@ -138,11 +140,12 @@ const controller = function($rootScope, $timeout) {
 			}
 		});
 	}
-	$ctrl.updateAttributeLgpd = (selected) => {
+	$ctrl.updateAttributeLgpd = (value,num) => {
 		$ctrl.onUpdate({
 			"event": {
 				"type": "attribute.lgpd",
-				"value": selected.type
+				"value": value,
+				"lgpd": num
 			}
 		});
 	}

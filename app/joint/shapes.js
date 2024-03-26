@@ -169,7 +169,8 @@ erd.Attribute = joint.dia.Element.extend({
       type: "erd.Attribute",
       supertype: "Attribute",
       cardinality: "(1, 1)",
-			lgpd: "Nenhum",
+      //pessoal, sensivel, anonimizado, criptografado, consentimento, periodo de consentimento, finalidade, compartilhamento, crianca/adolescente, identificador, semi-identificador
+			lgpd: [false,false,false,false,false,false,false,false,false,false,false],
       multivalued: false,
       composed: false,
       size: {
@@ -219,7 +220,7 @@ erd.Key = joint.dia.Element.extend({
       type: "erd.Key",
       supertype: "Key",
       cardinality: "(1, 1)",
-			lgpd: "Nenhum",
+			lgpd: [true,false,false,false,false,false,false,false,false,false,false],
       multivalued: false,
       composed: false,
       size: {

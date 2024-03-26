@@ -17,7 +17,6 @@ import template from "./conceptual.html";
 
 import modelDuplicatorComponent from "../components/duplicateModelModal";
 import statusBar from "../components/statusBar";
-import bugReportButton from "../components/bugReportButton";
 
 import Factory from "./factory";
 import Validator from "./validator";
@@ -272,18 +271,83 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 				break;
 			case 'attribute.lgpd':
 					$timeout(() => {
+						console.log(ctrl.selectedElement)
+						const location = event.lgpd;
 						const newLgpd = event.value;
+						const currentLgpd = ctrl.selectedElement.value.lgpd;
+						let tempLgpd = currentLgpd;
+						tempLgpd[location]=newLgpd;
+						if(location<=3){
+							let current = 3;
+							while (current >=0){
+								if(current>location && !newLgpd){
+									tempLgpd[current]=false;
+								}
+								if(current<location && newLgpd){
+									tempLgpd[current]=true;
+								}
+								current--;
+							}
+						}
+						
+
 						let currentText = ctrl.selectedElement.value.name;
 						const currentCardinality = ctrl.selectedElement.element.model.attributes.cardinality;
 						if(currentCardinality != '(1, 1)'){
 							currentText = currentText + " " + currentCardinality;
 						}
-						if(newLgpd != '[]' && newLgpd != 'Nenhum'){
-							currentText = currentText + " " + newLgpd;
+						let lgpdText = "";
+						for(let i = 3; i>=0; i--){
+							if(tempLgpd[i]){
+								switch(i){
+									case 3:
+										lgpdText+="[C]";
+										break;
+									case 2:
+										lgpdText+="[A]";
+										break;
+									case 1:
+										lgpdText+="[S]";
+										break;
+									case 0:
+										lgpdText+="[P]";
+										break;
+									
+								}
+							break;
+							}
 						}
+						for(let j = 4; j < tempLgpd.length; j++){
+							if(tempLgpd[j]){
+								switch(j){
+									case 4:
+										lgpdText+="[CS]"
+										break;
+									case 5:
+										lgpdText+="[PAC]"
+										break;
+									case 6:
+										lgpdText+="[F]"
+										break;
+									case 7:
+										lgpdText+="[CP]"
+										break;
+									case 8:
+										lgpdText+="[CA]"
+										break;
+									case 9:
+										lgpdText+="[I]"
+										break;
+									case 10:
+										lgpdText+="[SI]"
+										break;
+								}
+							}
+						}
+						currentText = currentText + " " + lgpdText;
 
 						ctrl.selectedElement.element.model.attributes.attrs.text.text = currentText;
-						ctrl.selectedElement.element.model.attributes.lgpd = newLgpd;
+						ctrl.selectedElement.element.model.attributes.lgpd = tempLgpd;
 						ctrl.selectedElement.element.update();
 					});
 					break;
@@ -583,7 +647,7 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 };
 
 export default angular
-	.module("app.workspace.conceptual", [modelDuplicatorComponent, preventExitServiceModule, bugReportButton, statusBar])
+	.module("app.workspace.conceptual", [modelDuplicatorComponent, preventExitServiceModule, statusBar])
 	.component("editorConceptual", {
 		template,
 		controller,

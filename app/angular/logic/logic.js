@@ -5,7 +5,6 @@ import sqlGeneratorModal from "../components/sqlGeneratorModal";
 import duplicateModelModal from "../components/duplicateModelModal";
 import queryExpressionModal from "../components/queryExpressionModal";
 import sqlComparasionDropdown from "../components/sqlComparasionDropdown";
-import bugReportButton from "../components/bugReportButton";
 import statusBar from "../components/statusBar";
 import preventExitServiceModule from "../service/preventExitService";
 import view from "../view/view";
@@ -246,7 +245,7 @@ const controller = function (
 };
 
 export default angular
-	.module("app.workspace.logic", [sqlGeneratorService, sqlGeneratorModal, duplicateModelModal, preventExitServiceModule, bugReportButton, statusBar, view, columnForm, sidebarControlLogical, checkConstraint, queryExpressionModal, sqlComparasionDropdown])
+	.module("app.workspace.logic", [sqlGeneratorService, sqlGeneratorModal, duplicateModelModal, preventExitServiceModule, statusBar, view, columnForm, sidebarControlLogical, checkConstraint, queryExpressionModal, sqlComparasionDropdown])
 	.component("editorLogic", {
 		template,
 		controller,
