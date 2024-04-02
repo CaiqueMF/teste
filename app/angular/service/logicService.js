@@ -387,10 +387,58 @@ const logicService = ($rootScope, ModelAPI, LogicFactory, LogicConversorService)
 	ls.editColumn = function (index, editedColumn) {
 
 		var name = editedColumn.name;
-
+		var tempLgpd = editedColumn.lgpd;
 		if (editedColumn.PK) {
 			name = name + ": PK";
 		}
+		let lgpdText = "";
+		for(let i = 3; i>=0; i--){
+			if(tempLgpd[i]){
+				switch(i){
+					case 3:
+						lgpdText+="[C]";
+						break;
+					case 2:
+						lgpdText+="[A]";
+						break;
+					case 1:
+						lgpdText+="[S]";
+						break;
+					case 0:
+						lgpdText+="[P]";
+					break;				
+				}
+			break;
+			}
+		}
+		for(let j = 4; j < tempLgpd.length; j++){
+			if(tempLgpd[j]){
+				switch(j){
+					case 4:
+						lgpdText+="[CS]"
+						break;
+					case 5:
+						lgpdText+="[PAC]"
+						break;
+					case 6:
+						lgpdText+="[F]"
+						break;
+					case 7:
+						lgpdText+="[CP]"
+						break;
+					case 8:
+						lgpdText+="[CA]"
+						break;
+					case 9:
+						lgpdText+="[I]"
+						break;
+					case 10:
+						lgpdText+="[SI]"
+						break;
+				}
+			}
+		}
+		name = name + lgpdText
 		// ls.selectedElement.model.attributes.attributes[index] = name;
 		//  	ls.selectedElement.model.attributes.objects[index].name = name;
 

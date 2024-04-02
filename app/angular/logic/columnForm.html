@@ -95,7 +95,138 @@
 			options="$ctrl.tableNames">
 		</dropdown>
 	</div>
-	
+	<div class="form-group clearfix">
+		<label for="lgpd">{{ 'LGPD' | translate }}</label>
+		<tr>
+			<td>
+				<div class="checkbox">
+					<label for="lgpd">
+						<input
+							id="pessoal"
+							type="checkbox"
+							ng-model="$ctrl.column.lgpd[0]"
+							ng-change="$ctrl.checkLgpd(0)"
+						> {{ 'Pessoal' | translate }}
+					</label>
+				</div>
+			</td>
+			<td>
+				<div class="checkbox">
+					<label for="lgpd">
+						<input
+							id="sensivel"
+							type="checkbox"
+							ng-model="$ctrl.column.lgpd[1]"
+							ng-change="$ctrl.checkLgpd(1)"
+						> {{ 'Sensível' | translate }}
+					</label>
+				</div>
+			</td>
+			<td>
+				<div class="checkbox">
+					<label for="lgpd">
+						<input
+							id="anonimizado"
+							type="checkbox"
+							ng-model="$ctrl.column.lgpd[2]"
+							ng-change="$ctrl.checkLgpd(2)"
+						> {{ 'Anonimizado' | translate }}
+					</label>
+				</div>
+			</td>
+			<td>
+				<div class="checkbox">
+					<label for="lgpd">
+						<input
+							id="criptografado"
+							type="checkbox"
+							ng-model="$ctrl.column.lgpd[3]"
+							ng-change="$ctrl.checkLgpd(3)"
+						> {{ 'Criptografado' | translate }}
+					</label>
+				</div>
+			</td>
+			<td>
+				<div class="checkbox">
+					<label for="lgpd">
+						<input
+							id="consentimento"
+							type="checkbox"
+							ng-model="$ctrl.column.lgpd[4]"
+						> {{ 'Consentimento' | translate }}
+					</label>
+				</div>
+			</td>
+			<td>
+				<div class="checkbox">
+					<label for="lgpd">
+						<input
+							id="periodoConsentimento"
+							type="checkbox"
+							ng-model="$ctrl.column.lgpd[5]"
+						> {{ 'Período de Consentimento' | translate }}
+					</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="checkbox">
+					<label for="lgpd">
+						<input
+							id="finalidade"
+							type="checkbox"
+							ng-model="$ctrl.column.lgpd[6]"
+						> {{ 'Finalidade' | translate }}
+					</label>
+				</div>
+			</td>
+			<td>
+				<div class="checkbox">
+					<label for="lgpd">
+						<input
+							id="compartilhamento"
+							type="checkbox"
+							ng-model="$ctrl.column.lgpd[7]"
+						> {{ 'Compartilhamento' | translate }}
+					</label>
+				</div>
+			</td>
+			<td>
+				<div class="checkbox">
+					<label for="lgpd">
+						<input
+							id="criancaAdolescente"
+							type="checkbox"
+							ng-model="$ctrl.column.lgpd[8]"
+						> {{ 'Criança/Adolescente' | translate }}
+					</label>
+				</div>
+			</td>
+			<td>
+				<div class="checkbox">
+					<label for="lgpd">
+						<input
+							id="identificador"
+							type="checkbox"
+							ng-model="$ctrl.column.lgpd[9]"
+						> {{ 'Identificador' | translate }}
+					</label>
+				</div>
+			</td>
+			<td>
+				<div class="checkbox">
+					<label for="lgpd">
+						<input
+							id="semiIdentificador"
+							type="checkbox"
+							ng-model="$ctrl.column.lgpd[10]"
+						> {{ 'Semi-identificador' | translate }}
+					</label>
+				</div>
+			</td>
+		</tr>
+	</div>
 	<footer class="card-item-actions">
 		<div class="actions-regular">
 			<button class="br-button" ng-click="$ctrl.save($ctrl.column, $ctrl.index)">{{ 'Save' | translate }}</button>
