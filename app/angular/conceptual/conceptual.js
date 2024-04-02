@@ -181,6 +181,7 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 		switch (event.type) {
 			case 'name':
 				$timeout(() => {
+					console.log(ctrl.selectedElement)
 					ctrl.selectedElement.element.model.attributes.attrs.text.text = event.value;
 					ctrl.selectedElement.element.update();
 				});
@@ -351,6 +352,83 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 						ctrl.selectedElement.element.update();
 					});
 					break;
+					case 'key.lgpd':
+						$timeout(() => {
+							const location = event.lgpd;
+							const newLgpd = event.value;
+							const currentLgpd = ctrl.selectedElement.element.model.attributes.lgpd;
+							let tempLgpd = currentLgpd;
+							tempLgpd[location]=newLgpd;
+							if(location<=3){
+								let current = 3;
+								while (current >=0){
+									if(current>location && !newLgpd){
+										tempLgpd[current]=false;
+									}
+									if(current<location && newLgpd){
+										tempLgpd[current]=true;
+									}
+									current--;
+								}
+							}
+							
+	
+							let currentText = ctrl.selectedElement.element.model.attributes.attrs.text.text.replace(/ *(\(|\[)[^)]*(\)|\]) */g, "");
+							let lgpdText = "";
+							for(let i = 3; i>=0; i--){
+								if(tempLgpd[i]){
+									switch(i){
+										case 3:
+											lgpdText+="[C]";
+											break;
+										case 2:
+											lgpdText+="[A]";
+											break;
+										case 1:
+											lgpdText+="[S]";
+											break;
+										case 0:
+											lgpdText+="[P]";
+											break;
+										
+									}
+								break;
+								}
+							}
+							for(let j = 4; j < tempLgpd.length; j++){
+								if(tempLgpd[j]){
+									switch(j){
+										case 4:
+											lgpdText+="[CS]"
+											break;
+										case 5:
+											lgpdText+="[PAC]"
+											break;
+										case 6:
+											lgpdText+="[F]"
+											break;
+										case 7:
+											lgpdText+="[CP]"
+											break;
+										case 8:
+											lgpdText+="[CA]"
+											break;
+										case 9:
+											lgpdText+="[I]"
+											break;
+										case 10:
+											lgpdText+="[SI]"
+											break;
+									}
+								}
+							}
+							currentText = currentText + " " + lgpdText;
+	
+							ctrl.selectedElement.element.model.attributes.attrs.text.text = currentText;
+							ctrl.selectedElement.element.model.attributes.lgpd = tempLgpd;
+							ctrl.selectedElement.element.update();
+						});
+						break;
 			case 'attribute.name':
 				$timeout(() => {
 					let newName = event.value;

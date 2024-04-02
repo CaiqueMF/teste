@@ -149,6 +149,15 @@ const controller = function($rootScope, $timeout) {
 			}
 		});
 	}
+	$ctrl.updateKeyLgpd = (value,num) => {
+		$ctrl.onUpdate({
+			"event": {
+				"type": "key.lgpd",
+				"value": value,
+				"lgpd": num
+			}
+		});
+	}
 
 	$ctrl.updateAttributeName = (newName) => {
 		$ctrl.onUpdate({

@@ -19,6 +19,7 @@ const Controller = function () {
 	};
 
 	$ctrl.selectType = function (selected) {
+		console.log($ctrl.column)
 		if (!$ctrl.column.PK && !$ctrl.column.FK) {
 			$ctrl.column.type = selected.type;
 		} else {

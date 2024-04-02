@@ -220,7 +220,7 @@ erd.Key = joint.dia.Element.extend({
       type: "erd.Key",
       supertype: "Key",
       cardinality: "(1, 1)",
-			lgpd: [true,false,false,false,false,false,false,false,false,false,false],
+			lgpd: [false,false,false,false,false,false,false,false,false,false,false],
       multivalued: false,
       composed: false,
       size: {

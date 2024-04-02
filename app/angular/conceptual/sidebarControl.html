@@ -248,6 +248,145 @@
 			<label for="entry-name">{{ 'Name' | translate }}</label>
 			<input id="entry-name" type="text" class="form-control" data-ng-model="$ctrl.selectedElement.value"
 				ng-change="$ctrl.updateName($ctrl.selectedElement.value)" autofocus/>
+				<div class="form-group clearfix">
+					<label for="lgpd">{{ 'LGPD' | translate }}</label>
+					<tr>
+						<td>
+							<div class="checkbox">
+								<label for="lgpd">
+									<input
+										id="pessoalKey"
+										type="checkbox"
+										ng-model="$ctrl.selectedElement.element.model.attributes.lgpd[0]"
+										ng-change="$ctrl.updateKeyLgpd($ctrl.selectedElement.element.model.attributes.lgpd[0],0)"
+									> {{ 'Pessoal' | translate }}
+								</label>
+							</div>
+						</td>
+						<td>
+							<div class="checkbox">
+								<label for="lgpd">
+									<input
+										id="sensivelKey"
+										type="checkbox"
+										ng-model="$ctrl.selectedElement.element.model.attributes.lgpd[1]"
+										ng-change="$ctrl.updateKeyLgpd($ctrl.selectedElement.element.model.attributes.lgpd[1],1)"
+									> {{ 'Sensível' | translate }}
+								</label>
+							</div>
+						</td>
+						<td>
+							<div class="checkbox">
+								<label for="lgpd">
+									<input
+										id="anonimizadoKey"
+										type="checkbox"
+										ng-model="$ctrl.selectedElement.element.model.attributes.lgpd[2]"
+										ng-change="$ctrl.updateKeyLgpd($ctrl.selectedElement.element.model.attributes.lgpd[2],2)"
+									> {{ 'Anonimizado' | translate }}
+								</label>
+							</div>
+						</td>
+						<td>
+							<div class="checkbox">
+								<label for="lgpd">
+									<input
+										id="criptografadoKey"
+										type="checkbox"
+										ng-model="$ctrl.selectedElement.element.model.attributes.lgpd[3]"
+										ng-change="$ctrl.updateKeyLgpd($ctrl.selectedElement.element.model.attributes.lgpd[3],3)"
+									> {{ 'Criptografado' | translate }}
+								</label>
+							</div>
+						</td>
+						<td>
+							<div class="checkbox">
+								<label for="lgpd">
+									<input
+										id="consentimentoKey"
+										type="checkbox"
+										ng-model="$ctrl.selectedElement.element.model.attributes.lgpd[4]"
+										ng-change="$ctrl.updateKeyLgpd($ctrl.selectedElement.element.model.attributes.lgpd[4],4)"
+									> {{ 'Consentimento' | translate }}
+								</label>
+							</div>
+						</td>
+						<td>
+							<div class="checkbox">
+								<label for="lgpd">
+									<input
+										id="periodoConsentimentoKey"
+										type="checkbox"
+										ng-model="$ctrl.selectedElement.element.model.attributes.lgpd[5]"
+										ng-change="$ctrl.updateKeyLgpd($ctrl.selectedElement.element.model.attributes.lgpd[5],5)"
+									> {{ 'Período de Consentimento' | translate }}
+								</label>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="checkbox">
+								<label for="lgpd">
+									<input
+										id="finalidadeKey"
+										type="checkbox"
+										ng-model="$ctrl.selectedElement.element.model.attributes.lgpd[6]"
+										ng-change="$ctrl.updateKeyLgpd($ctrl.selectedElement.element.model.attributes.lgpd[6],6)"
+									> {{ 'Finalidade' | translate }}
+								</label>
+							</div>
+						</td>
+						<td>
+							<div class="checkbox">
+								<label for="lgpd">
+									<input
+										id="compartilhamentoKey"
+										type="checkbox"
+										ng-model="$ctrl.selectedElement.element.model.attributes.lgpd[7]"
+										ng-change="$ctrl.updateKeyLgpd($ctrl.selectedElement.element.model.attributes.lgpd[7],7)"
+									> {{ 'Compartilhamento' | translate }}
+								</label>
+							</div>
+						</td>
+						<td>
+							<div class="checkbox">
+								<label for="lgpd">
+									<input
+										id="criancaAdolescenteKey"
+										type="checkbox"
+										ng-model="$ctrl.selectedElement.element.model.attributes.lgpd[8]"
+										ng-change="$ctrl.updateKeyLgpd($ctrl.selectedElement.element.model.attributes.lgpd[8],8)"
+									> {{ 'Criança/Adolescente' | translate }}
+								</label>
+							</div>
+						</td>
+						<td>
+							<div class="checkbox">
+								<label for="lgpd">
+									<input
+										id="identificadorKey"
+										type="checkbox"
+										ng-model="$ctrl.selectedElement.element.model.attributes.lgpd[9]"
+										ng-change="$ctrl.updateKeyLgpd($ctrl.selectedElement.element.model.attributes.lgpd[9],9)"
+									> {{ 'Identificador' | translate }}
+								</label>
+							</div>
+						</td>
+						<td>
+							<div class="checkbox">
+								<label for="lgpd">
+									<input
+										id="semiIdentificadorKey"
+										type="checkbox"
+										ng-model="$ctrl.selectedElement.element.model.attributes.lgpd[10]"
+										ng-change="$ctrl.updateKeyLgpd($ctrl.selectedElement.element.model.attributes.lgpd[10],10)"
+									> {{ 'Semi-identificador' | translate }}
+								</label>
+							</div>
+						</td>
+					</tr>
+				</div>
 		</div><!-- End .form-group -->
 
 		<div class="form-group" ng-if="($ctrl.configuration.relationship && $ctrl.visible)">
