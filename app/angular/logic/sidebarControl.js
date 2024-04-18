@@ -20,6 +20,19 @@ const Controller = function (LogicService, $rootScope, $timeout) {
 		});
 	});
 
+	$ctrl.swapTitular = (value) => {
+		if(value) {
+			$ctrl.selectedElement.attributes.attrs[".uml-class-attrs-rect"]['stroke-dasharray']=5
+			$ctrl.selectedElement.attributes.attrs[".uml-class-methods-rect"]['stroke-dasharray']=5
+			$ctrl.selectedElement.attributes.attrs[".uml-class-name-rect"]['stroke-dasharray']=5
+		} else {
+			$ctrl.selectedElement.attributes.attrs[".uml-class-attrs-rect"]['stroke-dasharray']=0
+			$ctrl.selectedElement.attributes.attrs[".uml-class-methods-rect"]['stroke-dasharray']=0
+			$ctrl.selectedElement.attributes.attrs[".uml-class-name-rect"]['stroke-dasharray']=0
+		}
+		$ctrl.changeName()
+	}
+
 	$ctrl.toggleSection = (section) => {
 		$ctrl.sections[section] = !$ctrl.sections[section];
 	}

@@ -26,7 +26,7 @@ const Controller = function () {
 		}
 	}
 	$ctrl.checkLgpd = function (location){
-		let current = 3;
+		let current = 2;
 		while (current >=0){
 			if(current>location && !$ctrl.column.lgpd[location]){
 				$ctrl.column.lgpd[current]=false;
@@ -36,7 +36,6 @@ const Controller = function () {
 			}
 			current--;
 		}
-		console.log($ctrl.column)
 	}
 
 	$ctrl.selectTableOrigin = function (selected) {

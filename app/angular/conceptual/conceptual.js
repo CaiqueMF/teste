@@ -278,8 +278,8 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 						const currentLgpd = ctrl.selectedElement.value.lgpd;
 						let tempLgpd = currentLgpd;
 						tempLgpd[location]=newLgpd;
-						if(location<=3){
-							let current = 3;
+						if(location<=2){
+							let current = 2;
 							while (current >=0){
 								if(current>location && !newLgpd){
 									tempLgpd[current]=false;
@@ -298,12 +298,9 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 							currentText = currentText + " " + currentCardinality;
 						}
 						let lgpdText = "";
-						for(let i = 3; i>=0; i--){
+						for(let i = 2; i>=0; i--){
 							if(tempLgpd[i]){
 								switch(i){
-									case 3:
-										lgpdText+="[C]";
-										break;
 									case 2:
 										lgpdText+="[A]";
 										break;
@@ -318,9 +315,12 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 							break;
 							}
 						}
-						for(let j = 4; j < tempLgpd.length; j++){
+						for(let j = 3; j < tempLgpd.length; j++){
 							if(tempLgpd[j]){
 								switch(j){
+									case 3:
+										lgpdText+="[C]";
+										break;
 									case 4:
 										lgpdText+="[CS]"
 										break;
@@ -359,8 +359,8 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 							const currentLgpd = ctrl.selectedElement.element.model.attributes.lgpd;
 							let tempLgpd = currentLgpd;
 							tempLgpd[location]=newLgpd;
-							if(location<=3){
-								let current = 3;
+							if(location<=2){
+								let current = 2;
 								while (current >=0){
 									if(current>location && !newLgpd){
 										tempLgpd[current]=false;
@@ -375,12 +375,9 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 	
 							let currentText = ctrl.selectedElement.element.model.attributes.attrs.text.text.replace(/ *(\(|\[)[^)]*(\)|\]) */g, "");
 							let lgpdText = "";
-							for(let i = 3; i>=0; i--){
+							for(let i = 2; i>=0; i--){
 								if(tempLgpd[i]){
 									switch(i){
-										case 3:
-											lgpdText+="[C]";
-											break;
 										case 2:
 											lgpdText+="[A]";
 											break;
@@ -395,9 +392,12 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 								break;
 								}
 							}
-							for(let j = 4; j < tempLgpd.length; j++){
+							for(let j = 3; j < tempLgpd.length; j++){
 								if(tempLgpd[j]){
 									switch(j){
+										case 3:
+											lgpdText+="[C]";
+											break;
 										case 4:
 											lgpdText+="[CS]"
 											break;

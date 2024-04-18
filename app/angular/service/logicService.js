@@ -385,19 +385,26 @@ const logicService = ($rootScope, ModelAPI, LogicFactory, LogicConversorService)
 	}
 
 	ls.editColumn = function (index, editedColumn) {
-
-		var name = editedColumn.name;
+		var name = editedColumn.name.split('[')[0].split(':')[0];
+		console.log(name)
 		var tempLgpd = editedColumn.lgpd;
-		if (editedColumn.PK) {
-			name = name + ": PK";
-		}
-		let lgpdText = "";
-		for(let i = 3; i>=0; i--){
+
+		let pkFkName = "";
+        if(editedColumn.PK || editedColumn.FK){
+            pkFkName = ":"
+        }
+        if (editedColumn.PK) {
+            pkFkName = pkFkName + " PK";
+        }
+
+        if (editedColumn.FK) {
+            pkFkName = pkFkName + " FK";
+        }
+        name = name + pkFkName
+		let lgpdText = " ";
+		for(let i = 2; i>=0; i--){
 			if(tempLgpd[i]){
 				switch(i){
-					case 3:
-						lgpdText+="[C]";
-						break;
 					case 2:
 						lgpdText+="[A]";
 						break;
@@ -411,9 +418,12 @@ const logicService = ($rootScope, ModelAPI, LogicFactory, LogicConversorService)
 			break;
 			}
 		}
-		for(let j = 4; j < tempLgpd.length; j++){
+		for(let j = 3; j < tempLgpd.length; j++){
 			if(tempLgpd[j]){
 				switch(j){
+					case 3:
+						lgpdText+="[C]";
+						break;
 					case 4:
 						lgpdText+="[CS]"
 						break;
