@@ -602,6 +602,7 @@ const logicService = ($rootScope, ModelAPI, LogicFactory, LogicConversorService)
 		elements.filter(isTable).forEach(element => {
 			var obj = {
 				name: element.attributes.name,
+				titular: element.attributes.titular,
 				columns: element.attributes.objects
 			}
 			map.set(element.id, obj);

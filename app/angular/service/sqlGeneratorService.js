@@ -114,6 +114,68 @@ const sqlGeneratorService = () => {
 			if (column.defaultValue) {
 				create += ` DEFAULT '${column.defaultValue}'`
 			}
+			if(column.lgpd.some(value => value === true)){
+				let lgpdText = " COMMENT '"
+				let lista = []
+				for(let i = 2; i>=0; i--){
+					if(column.lgpd[i]){
+						switch(i){
+							case 2:
+								lista.push("Anonimizado");
+								break;
+							case 1:
+								lista.push("Sensivel");
+								break;
+							case 0:
+								lista.push("Pessoal");
+							break;				
+						}
+					break;
+					}
+				}
+				for(let j = 3; j < column.lgpd.length; j++){
+					if(column.lgpd[j]){
+						switch(j){
+							case 3:
+								lista.push("Criptografado");
+								break;
+							case 4:
+								lista.push("Consentimento");
+								break;
+							case 5:
+								lista.push("Periodo de Consentimento")
+								break;
+							case 6:
+								lista.push("Finalidade")
+								break;
+							case 7:
+								lista.push("Compartilhamento")
+								break;
+							case 8:
+								lista.push("Crianca/Adolescente")
+								break;
+							case 9:
+								lista.push("identificador")
+								break;
+							case 10:
+								lista.push("Semi-identificador")
+								break;
+						}
+					}
+				}
+				if(lista.length==1){
+					lgpdText+=lista[0]+"'"
+				}else{
+					for(let i = 0; i<lista.length; i++){
+						lgpdText+=lista[i]
+						if(i!=lista.length-1){
+							lgpdText+= " ,"
+						}
+					}
+					lgpdText+="'"
+				}
+				create+=lgpdText;
+			}
 			create += ", " + " \n";
 
 			if (column.FK){
@@ -130,14 +192,18 @@ const sqlGeneratorService = () => {
 		if (hasUniqueConstraint) {
 			create += ` UNIQUE (${table.columns.filter(column => column.UNIQUE).map(({ name }) => `${name}`)})` + "\n";
 		}
-
-		create += "); \n\n"
+		create+= ")"
+		if(table?.titular){
+			create += " COMMENT 'Titular'"
+		}
+		create += "; \n\n"
 		return create;
 	}
 
 	const cleanString = function(name){
 		var newName = name.replace(": PK", "");
 		newName = newName.replace(": FK", "");
+		newName = newName.split('[')[0];
 		return newName;
 	}
 
