@@ -275,18 +275,25 @@ const logicService = ($rootScope, ModelAPI, LogicFactory, LogicConversorService)
 		newTable.attributes.position.x = (table.position.x);
 		newTable.attributes.position.y = (table.position.y);
 		newTable.set('name', table.name);
-
+		if(table.titular!=null){
+			newTable.attributes.titular = table.titular
+			if(table.titular){
+				newTable.attributes.attrs[".uml-class-attrs-rect"]['stroke-dasharray']=5
+				newTable.attributes.attrs[".uml-class-methods-rect"]['stroke-dasharray']=5
+				newTable.attributes.attrs[".uml-class-name-rect"]['stroke-dasharray']=5
+				}
+		}
 		var columns = table.columns;
 
 		for (var j = 0; j < columns.length; j++) {
 			const column = new Column({
 				name: columns[j].name,
 				PK: columns[j].PK,
+				lgpd: columns[j].lgpd,
 			});
 			newTable.addAttribute(column);
 		}
 		ls.graph.addCell(newTable);
-
 		return newTable;
 	}
 

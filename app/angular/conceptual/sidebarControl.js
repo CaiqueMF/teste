@@ -104,7 +104,6 @@ const controller = function($rootScope, $timeout) {
 		});
 	}
 	$ctrl.updateLgpd = (value,num) => {
-		console.log(num)
 		$ctrl.onUpdate({
 			"event": {
 				"type": "attribute.lgpd",

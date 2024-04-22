@@ -86,7 +86,8 @@ const Controller = function ($filter) {
 		$ctrl.conditions[index] = {
 			...selectedCondition,
 			columnName: selected.name,
-			columnType: selected.type
+			columnType: selected.type,
+			columnLgpd: selected.lgpd
 		};
 	}
 
@@ -105,6 +106,7 @@ const Controller = function ($filter) {
 				$ctrl.tableColumns.push({
 					name: `${table.name}.${column.name}`,
 					type: column.type,
+					lgpd: column.lgpd,
 				});
 			});
 		});

@@ -166,8 +166,9 @@ const logicConversorService = ($uibModal, $filter) => {
 				for (const children of childrens) {
 					for (const attribute of rootAttributes) {
 						const column = new Column({
-							name: attribute.attributes.attrs.text.text,
+							name: attribute.attributes.attrs.text.text.split('[')[0],
 							PK: attribute.attributes.type === 'erd.Key',
+							lgpd: attribute.attributes.lgpd,
 						});
 						ls.selectedElement = ls.paper.findViewByModel(entityTableMap.get(children.id));
 						ls.addColumn(column);
@@ -302,7 +303,7 @@ const logicConversorService = ($uibModal, $filter) => {
 						iterate();
 					} else {
 						const cardinality = attribute.attributes.cardinality;
-						const attName = attribute.attributes.attrs.text.text.replace(/ *\([^)]*\) */g, "");
+						const attName = attribute.attributes.attrs.text.text.replace(/ *\([^)]*\) */g, "").split('[')[0];
 						if (cardinality == "(0, n)" || cardinality == "(1, n)") {
 							const modalInstance = $uibModal.open({
 								backdrop: 'static',
@@ -332,6 +333,7 @@ const logicConversorService = ($uibModal, $filter) => {
 											const column = new Column({
 												name: `${attName}${index}`,
 												PK: attribute.attributes.type === 'erd.Key',
+												lgpd: attribute.attributes.lgpd,
 											})
 											ls.addColumn(column);
 										});
@@ -343,9 +345,11 @@ const logicConversorService = ($uibModal, $filter) => {
 							iterate();
 						} else {
 							const column = new Column({
-								name: attribute.attributes.attrs.text.text,
-								PK: attribute.attributes.type === 'erd.Key'
+								name: attribute.attributes.attrs.text.text.split('[')[0],
+								PK: attribute.attributes.type === 'erd.Key',
+								lgpd: attribute.attributes.lgpd,
 							});
+							console.log(column)
 							table.columns.push(column);
 							iterate();
 						}
@@ -363,7 +367,8 @@ const logicConversorService = ($uibModal, $filter) => {
 			const name = element.attributes.attrs.text.text;
 			const x = element.attributes.position.x;
 			const y = element.attributes.position.y;
-			const table = createTableObject(name, x, y);
+			const titular = element.attributes.titular;
+			const table = createTableObject(name, x, y, titular);
 			buildAttributes(table, neighbors, element).then((resp) => resolve(resp));
 		});
 	}
@@ -372,7 +377,8 @@ const logicConversorService = ($uibModal, $filter) => {
 		const name = reference.attributes.attrs.text.text.replace(/ *\([^)]*\) */g, "");
 		const x = reference.attributes.position.x;
 		const y = reference.attributes.position.y - 100;
-		const table = createTableObject(name, x, y);
+		const titular = reference.attributes.titular;
+		const table = createTableObject(name, x, y, titular);
 
 		const column = new Column({
 			name: "nome",
@@ -386,11 +392,12 @@ const logicConversorService = ($uibModal, $filter) => {
 		ls.addColumn(createFKColumn(entityReference));
 	}
 
-	const createTableObject = (name, x, y) => {
+	const createTableObject = (name, x, y, titular) => {
 		var table = {
 			"name": name,
 			"columns": [],
 			"connectedTo": [],
+			"titular": titular,
 			"position": {
 				"x": x,
 				"y": y
@@ -517,8 +524,9 @@ const logicConversorService = ($uibModal, $filter) => {
 			var name = relation.attributes.attrs.text.text;
 			var x = relation.attributes.position.x;
 			var y = relation.attributes.position.y;
+			var titular = relation.attributes.titular;
 
-			var table = createTableObject(name, x, y);
+			var table = createTableObject(name, x, y,titular);
 
 			var neighbors = modelGraph.getNeighbors(relation);
 
@@ -551,8 +559,8 @@ const logicConversorService = ($uibModal, $filter) => {
 			const name = relation.attributes.attrs.text.text;
 			const x = relation.attributes.position.x;
 			const y = relation.attributes.position.y;
-
-			const table = createTableObject(name, x, y);
+			const titular = relation.attributes.titular;
+			const table = createTableObject(name, x, y,titular);
 			const neighbors = modelGraph.getNeighbors(relation);
 
 			buildAttributes(table, neighbors).then((table) => {
@@ -733,6 +741,7 @@ const logicConversorService = ($uibModal, $filter) => {
 		return new Promise((resolve) => {
 			const x = relation.attributes.position.x;
 			const y = relation.attributes.position.y;
+			const titular = relation.attributes.titular;
 			const neighbors = modelGraph.getNeighbors(relation);
 			const entities = getEntityNeighbors(relation);
 
@@ -748,7 +757,7 @@ const logicConversorService = ($uibModal, $filter) => {
 				return `${data}_${entityName}`
 			}, "")
 
-			const table = createTableObject(newName, x, y);
+			const table = createTableObject(newName, x, y,titular);
 
 			buildAttributes(table, neighbors).then((table) => {
 				const newTable = ls.insertTable(table);

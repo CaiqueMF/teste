@@ -12,7 +12,7 @@ erd.Entity = joint.dia.Element.extend({
       type: "erd.Entity",
       supertype: "Entity",
       isExtended: false,
-      isTitular: false,
+      titular: false,
       autorelationship: false,
       size: { width: 80, height: 40 },
       attrs: {

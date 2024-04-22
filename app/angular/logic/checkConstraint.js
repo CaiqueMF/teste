@@ -16,6 +16,7 @@ const Controller = function () {
 		$ctrl.column.checkConstraint = {
 			type: selected.type,
 			name: selected.name,
+			lgpd: selected.lgpd
 		};
 	}
 

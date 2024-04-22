@@ -1,5 +1,5 @@
 export default class Column {
-	constructor({ name = "", PK = false, FK = false, type = "INT", idOrigin = "", idLink = "" } = {}) {
+	constructor({ name = "", PK = false, FK = false, type = "INT", idOrigin = "", idLink = "" ,lgpd= []} = {}) {
 		this.FK = FK;
 		this.PK = PK;
 		this.NOT_NULL = false;
@@ -13,6 +13,6 @@ export default class Column {
 			idName: "",
 		}
 		this.type = type;
-		this.lgpd = [];
+		this.lgpd = lgpd;
 	}
 }

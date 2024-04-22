@@ -181,7 +181,6 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 		switch (event.type) {
 			case 'name':
 				$timeout(() => {
-					console.log(ctrl.selectedElement)
 					ctrl.selectedElement.element.model.attributes.attrs.text.text = event.value;
 					ctrl.selectedElement.element.update();
 				});
@@ -202,7 +201,6 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 						const root = ctrl.selectedElement.element.model;
 						if(newValue) {
 							root.attributes.attrs['.outer']['stroke-dasharray']=5
-							console.log(root)
 						} else {
 							root.attributes.attrs['.outer']['stroke-dasharray']=0
 						}
@@ -272,7 +270,6 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 				break;
 			case 'attribute.lgpd':
 					$timeout(() => {
-						console.log(ctrl.selectedElement)
 						const location = event.lgpd;
 						const newLgpd = event.value;
 						const currentLgpd = ctrl.selectedElement.value.lgpd;
