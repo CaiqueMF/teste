@@ -2,7 +2,7 @@ FROM node:16-alpine
 
 WORKDIR /usr/src/app
 
-COPY yarn.lock package.json .
+COPY yarn.lock package.json ./
 
 RUN --mount=type=cache,target=/root/.yarn --mount=type=cache,target=/root/.cache YARN_CACHE_FOLDER=/root/.yarn yarn install
 

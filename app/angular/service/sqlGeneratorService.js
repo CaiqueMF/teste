@@ -149,7 +149,7 @@ const sqlGeneratorService = () => {
 								lista.push("Finalidade")
 								break;
 							case 7:
-								lista.push("Compartilhamento")
+								lista.push("Compartilhado")
 								break;
 							case 8:
 								lista.push("Crianca/Adolescente")

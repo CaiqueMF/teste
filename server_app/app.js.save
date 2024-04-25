@@ -10,10 +10,14 @@ const enforce = require('express-sslify');
 
 require("dotenv").config();
 
-let app = express();
+let app = express()
 app.use(cors());
-
-
+app.use(cors({
+  origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+}));
 if (app.get("env") === "production") {
 	app.use(enforce.HTTPS({ trustProtoHeader: true }));
 }

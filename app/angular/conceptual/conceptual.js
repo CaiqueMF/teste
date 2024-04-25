@@ -322,7 +322,7 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 										lgpdText+="[CS]"
 										break;
 									case 5:
-										lgpdText+="[PAC]"
+										lgpdText+="[APC]"
 										break;
 									case 6:
 										lgpdText+="[F]"
@@ -399,7 +399,7 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 											lgpdText+="[CS]"
 											break;
 										case 5:
-											lgpdText+="[PAC]"
+											lgpdText+="[APC]"
 											break;
 										case 6:
 											lgpdText+="[F]"
@@ -431,13 +431,60 @@ const controller = function (ModelAPI, $stateParams, $rootScope, $timeout, $uibM
 					let newName = event.value;
 					const currentCardinality = ctrl.selectedElement.value.cardinality;
 					const currentLgpd = ctrl.selectedElement.value.lgpd;
-
+					let tempLgpd = currentLgpd;
 					if(currentCardinality != '(1, 1)'){
 						newName = newName + " " + currentCardinality;
 					}
-					if(currentLgpd != '[]' && currentLgpd!='Nenhum'){
-						newName = newName + " " + currentLgpd
-					}
+					
+					let lgpdText = "";
+						for(let i = 2; i>=0; i--){
+							if(tempLgpd[i]){
+								switch(i){
+									case 2:
+										lgpdText+="[A]";
+										break;
+									case 1:
+										lgpdText+="[S]";
+										break;
+									case 0:
+										lgpdText+="[P]";
+										break;
+									
+								}
+							break;
+							}
+						}
+						for(let j = 3; j < tempLgpd.length; j++){
+							if(tempLgpd[j]){
+								switch(j){
+									case 3:
+										lgpdText+="[C]";
+										break;
+									case 4:
+										lgpdText+="[CS]"
+										break;
+									case 5:
+										lgpdText+="[APC]"
+										break;
+									case 6:
+										lgpdText+="[F]"
+										break;
+									case 7:
+										lgpdText+="[CP]"
+										break;
+									case 8:
+										lgpdText+="[CA]"
+										break;
+									case 9:
+										lgpdText+="[I]"
+										break;
+									case 10:
+										lgpdText+="[SI]"
+										break;
+								}
+							}
+						}
+						newName = newName + " " + lgpdText;
 
 					ctrl.selectedElement.element.model.attributes.attrs.text.text = newName;
 					ctrl.selectedElement.element.update();
