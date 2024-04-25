@@ -435,7 +435,7 @@ const logicService = ($rootScope, ModelAPI, LogicFactory, LogicConversorService)
 						lgpdText+="[CS]"
 						break;
 					case 5:
-						lgpdText+="[APC]"
+						lgpdText+="[PCS]"
 						break;
 					case 6:
 						lgpdText+="[F]"
@@ -444,7 +444,7 @@ const logicService = ($rootScope, ModelAPI, LogicFactory, LogicConversorService)
 						lgpdText+="[CP]"
 						break;
 					case 8:
-						lgpdText+="[CA]"
+						lgpdText+="[CAD]"
 						break;
 					case 9:
 						lgpdText+="[I]"

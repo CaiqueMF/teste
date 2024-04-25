@@ -102,7 +102,7 @@ uml.Class = joint.shapes.basic.Generic.extend({
 						lgpdText+="[CS]"
 						break;
 					case 5:
-						lgpdText+="[APC]"
+						lgpdText+="[PCS]"
 						break;
 					case 6:
 						lgpdText+="[F]"
@@ -111,7 +111,7 @@ uml.Class = joint.shapes.basic.Generic.extend({
 						lgpdText+="[CP]"
 						break;
 					case 8:
-						lgpdText+="[CA]"
+						lgpdText+="[CAD]"
 						break;
 					case 9:
 						lgpdText+="[I]"
