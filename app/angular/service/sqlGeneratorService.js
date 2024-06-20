@@ -102,6 +102,8 @@ const sqlGeneratorService = () => {
 		const hasCheckConstraint = table.columns.some(column => column.checkConstraint);
 		const hasUniqueConstraint = table.columns.some(column => column.UNIQUE);
 		let checkConstraint = '';
+		lgpdText = '/* , */\n'
+		lgpdN = 1
 		table.columns.forEach((column, index) => {
 			var alreadyCreated = createdMap.get(key);
 
@@ -115,7 +117,6 @@ const sqlGeneratorService = () => {
 				create += ` DEFAULT '${column.defaultValue}'`
 			}
 			if(column.lgpd.some(value => value === true)){
-				let lgpdText = " COMMENT '"
 				let lista = []
 				for(let i = 2; i>=0; i--){
 					if(column.lgpd[i]){
@@ -128,7 +129,7 @@ const sqlGeneratorService = () => {
 								break;
 							case 0:
 								lista.push("Pessoal");
-							break;				
+							break;
 						}
 					break;
 					}
@@ -163,18 +164,12 @@ const sqlGeneratorService = () => {
 						}
 					}
 				}
-				if(lista.length==1){
-					lgpdText+=lista[0]+"'"
-				}else{
-					for(let i = 0; i<lista.length; i++){
-						lgpdText+=lista[i]
-						if(i!=lista.length-1){
-							lgpdText+= " ,"
-						}
-					}
-					lgpdText+="'"
+				tempText = ' '
+				for(let i = 0; i<lista.length; i++){
+					tempText+=lista[i]+' '
 				}
-				create+=lgpdText;
+				lgpdText += '/* CONSTRAINT c'+lgpdN+' '+tempText+column.name+', */\n'
+				lgpdN+=1
 			}
 			create += ", " + " \n";
 
@@ -191,6 +186,9 @@ const sqlGeneratorService = () => {
 
 		if (hasUniqueConstraint) {
 			create += ` UNIQUE (${table.columns.filter(column => column.UNIQUE).map(({ name }) => `${name}`)})` + "\n";
+		}
+		if(lgpdText!== '/* , */\n'){
+			create+=lgpdText
 		}
 		create+= ")"
 		if(table?.titular){
