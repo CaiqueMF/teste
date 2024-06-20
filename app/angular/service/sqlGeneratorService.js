@@ -187,7 +187,7 @@ const sqlGeneratorService = () => {
 		if (hasUniqueConstraint) {
 			create += ` UNIQUE (${table.columns.filter(column => column.UNIQUE).map(({ name }) => `${name}`)})` + "\n";
 		}
-		if(lgpdText!== '/* , */\n'){
+		if(lgpdN!=1){
 			create+=lgpdText
 		}
 		create+= ")"
