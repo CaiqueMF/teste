@@ -168,7 +168,7 @@ const sqlGeneratorService = () => {
 				for(let i = 0; i<lista.length; i++){
 					tempText+=lista[i]+' '
 				}
-				lgpdText += '/* CONSTRAINT c'+lgpdN+' '+tempText+column.name.slip('[')[0]+', */\n'
+				lgpdText += '/* CONSTRAINT c'+lgpdN+' '+tempText+column.name.splip('[')[0]+', */\n'
 				lgpdN+=1
 			}
 			create += ", " + " \n";
