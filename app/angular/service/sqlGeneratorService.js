@@ -102,7 +102,7 @@ const sqlGeneratorService = () => {
 		const hasCheckConstraint = table.columns.some(column => column.checkConstraint);
 		const hasUniqueConstraint = table.columns.some(column => column.UNIQUE);
 		let checkConstraint = '';
-		lgpdText = '/* , */\n'
+		let lgpdText = '/* , */\n'
 		lgpdN = 1
 		table.columns.forEach((column, index) => {
 			var alreadyCreated = createdMap.get(key);
